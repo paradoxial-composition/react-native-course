@@ -19,24 +19,24 @@ const MealDetailsScreen = ({ route, navigation }) => {
 
   const mealIsFavorit = favoriteMealIds.includes(mealId);
   const handlePress = () => {
-    if(mealIsFavorit) {
+    if (mealIsFavorit) {
       // favoriteMealContext.removeFavorits(mealId);
-      dispatch(removeFavorites({id: mealId}));
+      dispatch(removeFavorites({ id: mealId }));
     } else {
       // favoriteMealContext.addFavorites(mealId);
-      dispatch(addFavorites({id: mealId}));
+      dispatch(addFavorites({ id: mealId }));
     }
   };
-
 
   useLayoutEffect(() => {
     navigation.setOptions({
       title: selectedMeal.title,
       headerRight: () => (
-        <IconButton 
-        icon={mealIsFavorit ? "heart" : "heart-outline"}
-        color="white"
-        onPress={handlePress} />
+        <IconButton
+          icon={mealIsFavorit ? "heart" : "heart-outline"}
+          color="white"
+          onPress={handlePress}
+        />
       ),
     });
   }, [handlePress, navigation]);
